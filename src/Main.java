@@ -4,8 +4,6 @@ public class Main {
 		list.add("Hello");
 		list.add("World!");
 		list.add(1, "My Animation");
-//		list.add(1, "Animals");
-//		System.out.println(list.get(2));
 		list.remove(1);
 		System.out.println(list);
 	}

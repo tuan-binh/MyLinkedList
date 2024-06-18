@@ -76,8 +76,24 @@ public class MyLinkedList<E> {
 		return this.numNodes;
 	}
 	
-	public E clone() {
-		return null;
+	public Object clone() {
+		MyLinkedList<E> clone = new MyLinkedList<>();
+		if (this.head == null) {
+			return clone;
+		}
+		Node<E> current = this.head;
+		clone.head = new Node<>(current.getData(), null);
+		Node<E> cloneCurrent = clone.head;
+		current = current.getNext();
+		
+		while (current != null) {
+			Node<E> newNode = new Node<>(current.getData(), null);
+			cloneCurrent.setNext(newNode);
+			cloneCurrent = newNode;
+			current = current.getNext();
+		}
+		clone.numNodes = this.numNodes;
+		return clone;
 	}
 	
 	public boolean contains(E element) {
